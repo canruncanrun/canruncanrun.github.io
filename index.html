@@ -1,78 +1,85 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>好屎真</title>
-    <style>
-        
-        div {
-            margin:100px auto ;
-            width: 200px;
-            height: 200px;
-            background-color: black;
-            /* transform-origin: center center; */
-            
-            position: absolute;
-            left:calc(50% - 100px);
-            animation: move 1s linear infinite;
-            color: aliceblue;
-        }
-        p{
-            margin:100px auto ;
-            width: 200px;
-            height: 200px;
-            position: absolute;
-           
-            left:calc(50% - 100px);
-            top: 10%;
-            /* animation: move 1s linear infinite; */
-            color: aliceblue;
-            text-align: center;
-        }
-        div::after {
-            position: absolute;
-            bottom: 100px;
-            
-            content: "";
-            display:block;
-            width: 200px;
-            height: 200px;
-            background-color: black;
-            border-radius: 50%;
-            /* transform: rotate(45deg); */
-        }
-        div::before {
-            position: absolute;
-            left: 100px;
-            
-            content: "";
-            display: block;
-            width: 200px;
-            height: 200px;
-            background-color: black;
-            border-radius: 50%;
-            /* transform: rotate(45deg); */
-            
-        }
-        @keyframes move {
-            from {
-                transform: scale(1.0) rotate(-45deg);
-            }
-            to {
-                transform: scale(1.2) rotate(-45deg);
-            }
-            
-        }
-    </style>
-</head>
-<body>
-    
-        <div>
-            
-        </div>
-        <p >好屎真铁公鸡</p>
-    
-</body>
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+<meta charset="UTF-8">  
+<meta name="viewport" content="width=device-width, initial-scale=1.0">  
+<title>答案之书</title>  
+<style>  
+    body {  
+        font-family: Arial, sans-serif;  
+        margin: 0;  
+        padding: 20px;  
+        box-sizing: border-box;  
+    }  
+    .container {  
+        max-width: 600px;  
+        margin: 0 auto;  
+        padding: 20px;  
+        background-color: #f4f4f4;  
+        border-radius: 8px;  
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);  
+    }  
+    input[type="text"], button {  
+        width: 100%;  
+        padding: 10px;  
+        margin-top: 5px;  
+        margin-bottom: 20px;  
+        box-sizing: border-box;  
+    }  
+    #answer {  
+        margin-top: 20px;  
+        font-size: 18px;  
+        font-weight: bold;  
+        text-align: center;  
+    }  
+    @media (max-width: 600px) {  
+        .container {  
+            padding: 10px;  
+        }  
+        input[type="text"], button {  
+            font-size: 16px;  
+        }  
+    }  
+</style>  
+</head>  
+<body>  
+<div class="container">  
+    <h1>答案之书</h1>  
+    <p>输入你的问题，然后点击下方的按钮...</p>  
+    <input type="text" id="questionInput" placeholder="请输入你的问题">  
+    <button onclick="giveAnswer()">翻开书页</button>  
+    <p id="answer"></p>  
+</div>  
+  
+<script>  
+const answers = [  
+    "是的，你会成功的。",  
+    "勇敢地去追求你的梦想吧！",  
+    "保持耐心，好事多磨。",  
+    "跟随你的心，它会指引你方向。",  
+    "有时候，简单就是答案。",  
+    "你的直觉是正确的。",  
+    "试着从不同的角度看待问题。",  
+    "每一个挑战都是成长的机会。",  
+    "相信自己，你拥有克服一切的力量。",  
+    "时间会带来答案，耐心等待吧。",  
+    "爱会指引你找到真正的幸福。",  
+    "在困难中寻找希望，你会找到出路的。",  
+    "深呼吸，一切都会好起来的。",  
+    "你的未来充满无限可能。",  
+    "你的努力终将得到回报。"  
+];  
+  
+function giveAnswer() {  
+    const question = document.getElementById('questionInput').value;  
+    if (!question.trim()) {  
+        alert('请输入一个问题！');  
+        return;  
+    }  
+    const randomIndex = Math.floor(Math.random() * answers.length);  
+    const answer = answers[randomIndex];  
+    document.getElementById('answer').textContent = `对于你的问题“${question}”，答案是：${answer}`;  
+}  
+</script>  
+</body>  
 </html>
